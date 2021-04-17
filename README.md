@@ -30,7 +30,7 @@
 -	A simple and easy-to-use GUI is provided for better gameplay. The gameplay design is so simple that the user won’t find it difficult to use and understand. Different images are used in the development of this simple game project, the gaming environment is just like the original Chrome Dino Run game. For demo of the project, have a look at the GIF below.
 
 <p align="center">
-  <img src="https://github.com/dhhruv/Chrome-Dino-Runner/blob/master/assets/DinoWallpaper.png">
+  <img src="https://github.com/dhhruv/Chrome-Dino-Runner/blob/master/assets/Other/Chrome%20Dino.gif">
 </p>
 
 ### Installation:
