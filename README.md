@@ -45,7 +45,7 @@ pip install requirements.txt
 
 ### Usage:
 
--	After installation, just run the `chromedino.py` using
+-	After installation, just run the [`chromedino.py`](https://github.com/dhhruv/Chrome-Dino-Runner/blob/master/chromedino.py) using
 ```
 python chromedino.py
 ```
