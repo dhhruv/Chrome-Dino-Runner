@@ -27,7 +27,11 @@
 ### About:
 
 -	The following represents a recreated version of the famous Dinosaur Game from Chrome Browser Offline mode implemented using **Python and PyGame**. The project file contains **Image Files** and a python script **(chromedino.py)**.
--	A simple and easy-to-use GUI is provided for better gameplay. The gameplay design is so simple that the user won’t find it difficult to use and understand. Different images are used in the development of this simple game project, the gaming environment is just like the original Chrome Dino Run game. 
+-	A simple and easy-to-use GUI is provided for better gameplay. The gameplay design is so simple that the user won’t find it difficult to use and understand. Different images are used in the development of this simple game project, the gaming environment is just like the original Chrome Dino Run game. For demo of the project, have a look at the GIF below.
+
+<p align="center">
+  <img src="https://github.com/dhhruv/Chrome-Dino-Runner/blob/master/assets/DinoWallpaper.png">
+</p>
 
 ### Installation:
 
