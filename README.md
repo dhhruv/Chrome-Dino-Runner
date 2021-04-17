@@ -1,6 +1,6 @@
 <p align="center">
   <img src="https://github.com/dhhruv/Chrome-Dino-Runner/blob/master/assets/DinoWallpaper.png" width="97" height="97">
-  <h2 align="center" style="margin-top: -4px !important;">A Replica of the hidden Dinosaur Game from Chrome Browser Offline mode so you don't have to be offline to play it...😎😂</h2>
+  <h2 align="center" style="margin-top: -4px !important;">A Replica of the hidden Dinosaur Game from Chrome Browser Offline mode so you don't have to be offline to play it...😂😂</h2>
   <p align="center">
     <a href="https://github.com/dhhruv/Sudoku-Solver/blob/master/LICENSE">
       <img src="https://img.shields.io/badge/license-MIT-informational">
