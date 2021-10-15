@@ -172,10 +172,12 @@ class LargeCactus(Obstacle):
 
 
 class Bird(Obstacle):
+    BIRD_HEIGHTS = [250, 290, 320]
+
     def __init__(self, image):
         self.type = 0
         super().__init__(image, self.type)
-        self.rect.y = 250
+        self.rect.y = random.choice(self.BIRD_HEIGHTS)
         self.index = 0
 
     def draw(self, SCREEN):
