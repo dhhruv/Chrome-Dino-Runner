@@ -1,8 +1,9 @@
-#!/usr/bin/python
+# !/usr/bin/python
 # -*- coding: utf-8 -*-
 import os
 import random
 import threading
+import datetime
 
 import pygame
 
@@ -226,8 +227,11 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
-
-        SCREEN.fill((255, 255, 255))
+        current_time = datetime.datetime.now().hour
+        if(7<current_time<19):
+            SCREEN.fill((255, 255, 255))
+        else:
+            SCREEN.fill((0, 0, 0))
         userInput = pygame.key.get_pressed()
 
         player.draw(SCREEN)
@@ -264,7 +268,11 @@ def menu(death_count):
     global points
     run = True
     while run:
-        SCREEN.fill((255, 255, 255))
+        current_time = datetime.datetime.now().hour
+        if(7<current_time<19):
+            SCREEN.fill((255, 255, 255))
+        else:
+            SCREEN.fill((128, 128, 128))
         font = pygame.font.Font("freesansbold.ttf", 30)
 
         if death_count == 0:
