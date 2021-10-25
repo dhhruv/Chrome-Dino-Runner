@@ -207,8 +207,11 @@ def main():
         points += 1
         if points % 100 == 0:
             game_speed += 1
-
-        text = font.render("Points: " + str(points), True, (0, 0, 0))
+        current_time = datetime.datetime.now().hour
+        if(7<current_time<19):
+            text = font.render("Points: " + str(points), True, (0, 0, 0))
+        else:
+            text = font.render("Points: " + str(points), True, (255, 255, 255))
         textRect = text.get_rect()
         textRect.center = (1000, 40)
         SCREEN.blit(text, textRect)
