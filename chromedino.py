@@ -314,6 +314,17 @@ def menu(death_count):
             scoreRect = score.get_rect()
             scoreRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 50)
             SCREEN.blit(score, scoreRect)
+            f = open("score.txt","a")
+            f.write(str(points)+"\n")
+            f.close()
+            with open("score.txt", "r") as f:
+                score = f.read() # Read all file in case values are not on a single line
+                score_ints = [ int(x) for x in score.split() ] # Convert strings to ints
+            highscore = max(score_ints) # sum all elements of the list
+            hs_score_text = font.render("High Score : " + str(highscore), True, (0,0,0))
+            hs_score_rect = hs_score_text.get_rect()
+            hs_score_rect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 100)
+            SCREEN.blit(hs_score_text, hs_score_rect)
         textRect = text.get_rect()
         textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
         SCREEN.blit(text, textRect)
