@@ -1,9 +1,9 @@
 # !/usr/bin/python
 # -*- coding: utf-8 -*-
+import datetime
 import os
 import random
 import threading
-import datetime
 
 import pygame
 
@@ -209,7 +209,7 @@ def main():
         if points % 100 == 0:
             game_speed += 1
         current_time = datetime.datetime.now().hour
-        if(7<current_time<19):
+        if 7 < current_time < 19:
             text = font.render("Points: " + str(points), True, (0, 0, 0))
         else:
             text = font.render("Points: " + str(points), True, (255, 255, 255))
@@ -226,7 +226,7 @@ def main():
             SCREEN.blit(BG, (image_width + x_pos_bg, y_pos_bg))
             x_pos_bg = 0
         x_pos_bg -= game_speed
-    
+
     def unpause():
         nonlocal pause, run
         pause = False
@@ -259,7 +259,7 @@ def main():
                 paused()
 
         current_time = datetime.datetime.now().hour
-        if(7<current_time<19):
+        if 7 < current_time < 19:
             SCREEN.fill((255, 255, 255))
         else:
             SCREEN.fill((0, 0, 0))
@@ -300,7 +300,7 @@ def menu(death_count):
     run = True
     while run:
         current_time = datetime.datetime.now().hour
-        if(7<current_time<19):
+        if 7 < current_time < 19:
             SCREEN.fill((255, 255, 255))
         else:
             SCREEN.fill((128, 128, 128))
@@ -314,14 +314,18 @@ def menu(death_count):
             scoreRect = score.get_rect()
             scoreRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 50)
             SCREEN.blit(score, scoreRect)
-            f = open("score.txt","a")
-            f.write(str(points)+"\n")
+            f = open("score.txt", "a")
+            f.write(str(points) + "\n")
             f.close()
             with open("score.txt", "r") as f:
-                score = f.read() # Read all file in case values are not on a single line
-                score_ints = [ int(x) for x in score.split() ] # Convert strings to ints
-            highscore = max(score_ints) # sum all elements of the list
-            hs_score_text = font.render("High Score : " + str(highscore), True, (0,0,0))
+                score = (
+                    f.read()
+                )  # Read all file in case values are not on a single line
+                score_ints = [int(x) for x in score.split()]  # Convert strings to ints
+            highscore = max(score_ints)  # sum all elements of the list
+            hs_score_text = font.render(
+                "High Score : " + str(highscore), True, (0, 0, 0)
+            )
             hs_score_rect = hs_score_text.get_rect()
             hs_score_rect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 100)
             SCREEN.blit(hs_score_text, hs_score_rect)
