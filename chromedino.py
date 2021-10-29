@@ -50,6 +50,7 @@ CLOUD = pygame.image.load(os.path.join("assets/Other", "Cloud.png"))
 
 BG = pygame.image.load(os.path.join("assets/Other", "Track.png"))
 
+FONT_COLOR=(0,0,0)
 
 class Dinosaur:
 
@@ -209,12 +210,14 @@ def main():
         if points % 100 == 0:
             game_speed += 1
         current_time = datetime.datetime.now().hour
-        if 7 < current_time < 19:
-            text = font.render("Points: " + str(points), True, (0, 0, 0))
-        else:
-            text = font.render("Points: " + str(points), True, (255, 255, 255))
+        with open("score.txt", "r") as f:
+            score_ints = [int(x) for x in f.read().split()]  
+            highscore = max(score_ints)
+            if points > highscore:
+                highscore=points 
+            text = font.render("High Score: "+ str(highscore) + "  Points: " + str(points), True, FONT_COLOR)
         textRect = text.get_rect()
-        textRect.center = (1000, 40)
+        textRect.center = (900, 40)
         SCREEN.blit(text, textRect)
 
     def background():
@@ -236,9 +239,9 @@ def main():
         nonlocal pause
         pause = True
         font = pygame.font.Font("freesansbold.ttf", 30)
-        text = font.render("Game Paused, Press 'u' to Unpause", True, (0, 0, 0))
+        text = font.render("Game Paused, Press 'u' to Unpause", True, FONT_COLOR)
         textRect = text.get_rect()
-        textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
+        textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT  // 3)
         SCREEN.blit(text, textRect)
         pygame.display.update()
 
@@ -297,20 +300,23 @@ def main():
 
 def menu(death_count):
     global points
+    global FONT_COLOR
     run = True
     while run:
         current_time = datetime.datetime.now().hour
         if 7 < current_time < 19:
+            FONT_COLOR=(0,0,0)
             SCREEN.fill((255, 255, 255))
         else:
+            FONT_COLOR=(255,255,255)
             SCREEN.fill((128, 128, 128))
         font = pygame.font.Font("freesansbold.ttf", 30)
 
         if death_count == 0:
-            text = font.render("Press any Key to Start", True, (0, 0, 0))
+            text = font.render("Press any Key to Start", True, FONT_COLOR)
         elif death_count > 0:
-            text = font.render("Press any Key to Restart", True, (0, 0, 0))
-            score = font.render("Your Score: " + str(points), True, (0, 0, 0))
+            text = font.render("Press any Key to Restart", True, FONT_COLOR)
+            score = font.render("Your Score: " + str(points), True, FONT_COLOR)
             scoreRect = score.get_rect()
             scoreRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 50)
             SCREEN.blit(score, scoreRect)
@@ -324,7 +330,7 @@ def menu(death_count):
                 score_ints = [int(x) for x in score.split()]  # Convert strings to ints
             highscore = max(score_ints)  # sum all elements of the list
             hs_score_text = font.render(
-                "High Score : " + str(highscore), True, (0, 0, 0)
+                "High Score : " + str(highscore), True, FONT_COLOR
             )
             hs_score_rect = hs_score_text.get_rect()
             hs_score_rect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2 + 100)
