@@ -349,6 +349,5 @@ def menu(death_count):
             if event.type == pygame.KEYDOWN:
                 main()
 
-
-t1 = threading.Thread(target=menu(death_count=0), daemon=True)
+t1 = threading.Thread(target=menu, args=(0,), daemon=True)
 t1.start()
